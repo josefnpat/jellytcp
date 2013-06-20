@@ -10,7 +10,7 @@ jellyclient.defaults = {}
 jellyclient.defaults.lower_latency = 1/24
 
 jellyclient.var = {}
-jellyclient.var.timeout_connect = 0.01
+jellyclient.var.timeout_connect = 0.1
 
 jellyclient._debug = false
 
