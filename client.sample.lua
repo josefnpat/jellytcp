@@ -12,7 +12,11 @@ if error then
   print(error)
 else
   client:run('test','Hello World')
+  now = socket.gettime()
+  last = socket.gettime()
   while #client._payload > 0 do
-    client:update(0.1)
+    last = now
+    now = socket.gettime()
+    client:update(now - last)
   end
 end
