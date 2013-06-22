@@ -1,18 +1,12 @@
 local jellyclient = {}
 
--- TODO:
--- * Use assert
--- * internationalize error messages
--- * remove collision possibility of id
--- * use sessions instead of id
+jellyclient._debug = false
 
 jellyclient.defaults = {}
 jellyclient.defaults.lower_latency = 1/24
 
 jellyclient.var = {}
-jellyclient.var.timeout_connect = 0.1
-
-jellyclient._debug = false
+jellyclient.var.timeout_connect = 0.01
 
 function jellyclient.new(ip,port,op,lower_latency)
 

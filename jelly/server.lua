@@ -3,8 +3,8 @@ local jellyserver = {}
 jellyserver._debug = false
 
 jellyserver.var = {}
-jellyserver.var.timeout_server = 0.1
-jellyserver.var.timeout_client = 0.1
+jellyserver.var.timeout_server = 0.01
+jellyserver.var.timeout_client = 0.01
 
 function jellyserver.new(port,op)
 
