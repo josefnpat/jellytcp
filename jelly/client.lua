@@ -79,7 +79,7 @@ function jellyclient:update(dt)
     
     local resp_len,err_msg
     repeat
-      resp_len,err_msg = self._sock:receive("*l")
+      resp_len,err_msg = self._sock:receive()
     until resp_len
     local response=""
     repeat
