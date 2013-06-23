@@ -76,7 +76,23 @@ function jellyclient:update(dt)
     if self._debug then print("client.sock:send stop") end
     
     if self._debug then print("client.sock:receive start") end
-    local line,error = self._sock:receive()
+    --local line,error = self._sock:receive()
+    
+    local resp_len,err_msg
+    repeat
+      resp_len,err_msg = self._sock:receive("*l")
+      print(resp_len,err_msg)
+    until resp_len
+    local response=""
+    repeat
+      resp_cur,err_msg = self._sock:receive(resp_len - string.len(response))
+      if resp_cur then
+        response = response .. resp_cur
+      end
+    until not resp_cur or string.len(response) >= tonumber(resp_len)
+    
+    local line = response
+
     if self._debug then print("client.sock:receive stop") end
     
     if error then

@@ -83,7 +83,14 @@ function jellyserver:update()
         if self._debug then print("update stop") end
         
         if self._debug then print(clienti.." client:send start") end
+        
+        json_response = json.encode(response)
+        
+        client:send(string.len(json_response).."\n")
+        client:send(json_response.."\n")
+        
         client:send(json.encode(response).."\n")
+        
         if self._debug then print(clienti.." client:send stop") end
         
         if self._debug then print("receive:"..line) end

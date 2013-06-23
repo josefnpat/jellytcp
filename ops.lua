@@ -7,7 +7,10 @@ ops.test.server = function(clientid,data)
   print("-- incoming clientid:",clientid)
   print("-- incoming data:",data)
   print("-- outgoing data:",ret)
-  return ret
+  for i = 1,50000 do
+    ret = ret .. math.random(1,100)
+  end
+  return ret .. "END"
 end
 
 ops.test.client = function(data)
